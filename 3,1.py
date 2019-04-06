@@ -1,11 +1,12 @@
-male =[
+# array för män
+male =[ 
     "Erik",
     "Lars",
     "Karl",
     "Andreas",
     "Johan"
     ]
-
+# array för kvinnor
 female =[
     "Maria",
     "Anna",
@@ -13,8 +14,8 @@ female =[
     "Elisabeth",
     "Eva"
 ]
-
-print(male[0])
-print(female[2])
-print(female[4])
-print(male[1])
+# skriver ut 
+print(male[0])  # första namnet från män
+print(female[2])    # tredje namnet från kvinnor
+print(female[4])    # femte från kvinnor
+print(male[1])  # andra från maän

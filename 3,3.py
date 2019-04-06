@@ -14,7 +14,7 @@ female =[
     "Eva"
 ]
 
-male.append("Gor")
+male.append("Gor")  # adderar ett namn till män
 
 print(male)
 print(female)

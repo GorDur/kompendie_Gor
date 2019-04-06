@@ -13,8 +13,8 @@ female =[
     "Elisabeth",
     "Eva"
 ]
-male.sort()
-female.sort()
+male.sort() # sorterar allla namn i män enligt alfabet
+female.sort()   # samma för kvinnor
 
 print(male)
 print(female)

@@ -14,9 +14,9 @@ female =[
     "Eva"
 ]
 
-x = input("vilket name?  ")
+x = input("vilket name?  ") # input för ett namn
 
-male.remove(x)
-print(male)
-female.remove(x)
-print(female)
+male.remove(x)  # namnet tas bort från män
+print(male) # skriver ut män
+female.remove(x)    # namnet tas bort från kvinnor
+print(female)   # skriver ut kvinnor

@@ -1,8 +1,8 @@
-q = input("Ange kön: " )
-w = input("Ange hårfärg: " )
-e = input("Ange ögonfärg: " )
-
-Daniel_Redcliffe =["man","brun","brun"]
+q = input("Ange kön: " )    # variabel för kön
+w = input("Ange hårfärg: " )    # variabel för hårfärg
+e = input("Ange ögonfärg: " )   # variabel för ögonfärg
+# objekter och deras specifikationer
+Daniel_Redcliffe =["man","brun","brun"] 
 Rupert_Grint = ["man","röd","blå"]
 Emma_Watson = ["kvinna","brun","brun"]
 Selena_Gomez = ["kvinna","brun","brun"]
@@ -11,8 +11,9 @@ Bruce_Wayne = ["man","svart","brun"]
 Anders_Andresson = ["man","gul","blå"]
 Karin_Larsson = ["kvinna","gul","blå"]
 Lisa_Magnusson = ["kvinna","brun","blå"]
+# array för alla objekter
 Namn = [Daniel_Redcliffe,Rupert_Grint,Emma_Watson,Selena_Gomez,Solomon_Granddy,Bruce_Wayne,Anders_Andresson,Karin_Larsson,Lisa_Magnusson]
-
+# if satser för att ta reda vem passar specifikationer som vi skrev in
 if q in Namn[0][0] and w in Namn[0][1] and e in Namn[0][2]:
     print("Egenskaper matchar med: "+ "Daniel Redcliffe")
 if q in Namn[1][0] and w in Namn[1][1] and e in Namn[1][2]:
