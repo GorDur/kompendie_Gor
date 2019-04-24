@@ -1,6 +1,6 @@
-import requests
+import requests # importerar requests
 
-def get(url):
-    r = requests.get(url) 
-    R = r.json()
-    return R
+def get(url):   # definerar get
+    r = requests.get(url)   # får urlen 
+    R = r.json()    # gör om till json fill 
+    return R    # returnerar

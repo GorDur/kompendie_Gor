@@ -18,6 +18,6 @@ while g > -1:   # loopen körs hela tidden
         g = int(input("Try again > "))
     elif g == i:    # om gissningen är rätt
         print(str(g) + " is correct! \nIt took you " + str(a) + " guesses. \nGood job!")    
-        break
+        break   # stop
 
 
