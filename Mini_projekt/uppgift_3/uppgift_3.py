@@ -7,7 +7,7 @@ import xlrd
 import datetime
 dt = datetime.date.today()
 # Give the location of the file 
-loc = ("C://Users//s8gorgar//Desktop//prog//Python//Mini_projekt//uppgift_3//Bedömning_prog.xlsx")  # kan ändras beroende på positionen 
+loc = ("uppgift_3//Bedömning_prog.xlsx")  # kan ändras beroende på positionen 
 # För att välja vilken ska tas fram
 wb = xlrd.open_workbook(loc) 
 sheet = wb.sheet_by_index(0)  
@@ -38,50 +38,21 @@ scetion = document.sections[0]
 header = scetion.header
 paragraph = header.paragraphs[0]
 paragraph.text = larare + "          " + str(dt)
-# information om ämnesbedömning
-p1 = document.add_paragraph('')
-p2 = document.add_paragraph('')
-p3 = document.add_paragraph('')
-p4 = document.add_paragraph('')
-p5 = document.add_paragraph('')
-p6 = document.add_paragraph('')
-p7 = document.add_paragraph('')
-p8 = document.add_paragraph('')
 # elevens position från listan  med alla elever
-i = elever.index(elev) + 1
-# skriver under central inehållet 
-if  sheet.cell_value(i, 1) == "Genomfört":  # om man har genomfört delen då blir den fet stil 
-    p1.add_run('Grundläggande programmering i ett eller flera programspråk varav minst ett av språken är textbaserat.').bold = True
-else:   # annars blir den vanlig text
-    p1.add_run('Grundläggande programmering i ett eller flera programspråk varav minst ett av språken är textbaserat.')
-if  sheet.cell_value(i, 2) == "Genomfört":    
-    p2.add_run('Programmering och dess olika användningsområden ur ett socialt perspektiv inklusive genus, kultur och socioekonomisk bakgrund.').bold = True
-else:
-    p2.add_run('Programmering och dess olika användningsområden ur ett socialt perspektiv inklusive genus, kultur och socioekonomisk bakgrund.')
-if  sheet.cell_value(i, 3) == "Genomfört":   
-    p3.add_run('Programmeringens möjligheter och begränsningar utifrån datorns funktionssätt.').bold = True
-else:
-    p3.add_run('Programmeringens möjligheter och begränsningar utifrån datorns funktionssätt.')
-if  sheet.cell_value(i, 4) == "Genomfört":    
-    p4.add_run('Grundläggande kontrollstrukturer, konstruktioner och datatyper.').bold = True
-else:
-    p4.add_run('Grundläggande kontrollstrukturer, konstruktioner och datatyper.')
-if  sheet.cell_value(i, 5) == "Genomfört":   
-    p5.add_run('Arbetsmetoder för förebyggande av programmeringsfel, testning, felsökning och rättning av kod.').bold = True
-else:
-    p5.add_run('Arbetsmetoder för förebyggande av programmeringsfel, testning, felsökning och rättning av kod.')
-if  sheet.cell_value(i, 6) == "Genomfört":    
-    p6.add_run('Grundläggande datastrukturer och algoritmer.').bold = True
-else:
-    p6.add_run('Grundläggande datastrukturer och algoritmer.')
-if  sheet.cell_value(i, 7) == "Genomfört":    
-    p7.add_run('Gränssnitt för interaktion mellan program och användare.').bold = True
-else:
-    p7.add_run('Gränssnitt för interaktion mellan program och användare.')
-if  sheet.cell_value(i, 8) == "Genomfört":   
-    p8.add_run('Normer och värden inom programmering, till exempel läsbarhet, dokumentation, testbarhet, rena gränssnitt och nyttan av standard.').bold = True
-else:
-    p8.add_run('Normer och värden inom programmering, till exempel läsbarhet, dokumentation, testbarhet, rena gränssnitt och nyttan av standard.')
+ID = elever.index(elev) + 1
+# information om ämnesbedömning
+krav = []    
+for i in range(1, 9):  # tar alla värde från denna rad (kraven)
+    krav.append(sheet.cell_value(0, i)) # Lägger in i arrayen
+# for loop för att gå igenom kraven och sedan skriva ut som List Bullet 
+p = []  
+for i in range(0, len(krav)):   
+    a = document.add_paragraph(style='List Bullet')
+    p.append(a.add_run(krav[i]))    # och lägga i en array
+# tittar om eleven har genomfört denna delen 
+for i in range(1, 9):   
+    if sheet.cell_value(ID, i).startswith("Genomfört"):   # Om delen är genomfört då skrevs det fet stilad
+        p[i-1].bold = True
 # kunskapskrav
 document.add_heading('Kunskapskrav')
 # skapar tabell
@@ -95,7 +66,7 @@ hdr_cells[0].text = 'Rubrik'    # sätter konstanta värde på några ställe
 hdr_cells[1].text = 'E'
 hdr_cells[2].text = 'C'
 hdr_cells[3].text = 'A'
-for i in range(0,10):   # vad ska finnas i alla 4 kolumner
+for i in range(0,11):   # vad ska finnas i alla 4 kolumner
     ftr_cells[i].text = sheet2.cell_value(i, 0)
     ftr1_cells[i].text = sheet2.cell_value(i, 1)
     ftr2_cells[i].text = sheet2.cell_value(i, 2)
@@ -104,7 +75,7 @@ for i in range(0,10):   # vad ska finnas i alla 4 kolumner
 A = []
 C = []
 E = []
-for i in range(1,10):   # sätter in värde i arrayer
+for i in range(1,11):   # sätter in värde i arrayer
     ID = elever.index(elev) + 1
     if sheet1.cell_value(ID, i).startswith("A"):
         A.append(i)
